@@ -30,7 +30,7 @@ public class LoggingAspect {
         this.env = env;
     }
 
-    /**
+    /*
      * Pointcut that matches all repositories, services and Web REST endpoints.
      */
     @Pointcut("within(@org.springframework.stereotype.Repository *)" +
@@ -38,9 +38,10 @@ public class LoggingAspect {
         " || within(@org.springframework.web.bind.annotation.RestController *)")
     public void springBeanPointcut() {
         // Method is empty as this is just a Pointcut, the implementations are in the advices.
-    }
+    	log.debug("ZZZ");
+    } 
 
-    /**
+     /*
      * Pointcut that matches all Spring beans in the application's main packages.
      */
     @Pointcut("within(com.tandem6.portal.repository..*)"+
@@ -48,6 +49,7 @@ public class LoggingAspect {
         " || within(com.tandem6.portal.web.rest..*)")
     public void applicationPackagePointcut() {
         // Method is empty as this is just a Pointcut, the implementations are in the advices.
+    	log.debug("BBB");
     }
 
     /**

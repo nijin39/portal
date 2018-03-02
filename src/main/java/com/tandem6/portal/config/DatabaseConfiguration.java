@@ -25,7 +25,7 @@ import java.lang.reflect.Method;
 import java.sql.SQLException;
 
 @Configuration
-@EnableJpaRepositories("com.tandem6.portal.repository")
+@EnableJpaRepositories("com.tandem6.portal")
 @EnableJpaAuditing(auditorAwareRef = "springSecurityAuditorAware")
 @EnableTransactionManagement
 @EnableElasticsearchRepositories("com.tandem6.portal.repository.search")
