@@ -1,11 +1,21 @@
 package com.tandem6.portal.domain;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapKeyColumn;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 /**
  * Persist AuditEvent managed by the Spring Boot actuator.
@@ -16,7 +26,9 @@ import java.util.Map;
 @Table(name = "portal_persistent_audit_event")
 public class PersistentAuditEvent implements Serializable {
 
-    @Id
+	private static final long serialVersionUID = -4358928810318390178L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "event_id")
     private Long id;

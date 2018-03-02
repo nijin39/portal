@@ -1,15 +1,17 @@
 package com.tandem6.portal.web.rest.errors;
 
-import org.zalando.problem.AbstractThrowableProblem;
-import org.zalando.problem.Status;
-
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.zalando.problem.AbstractThrowableProblem;
+import org.zalando.problem.Status;
+
 public class BadRequestAlertException extends AbstractThrowableProblem {
 
-    private final String entityName;
+	private static final long serialVersionUID = 2574339614377042440L;
+
+	private final String entityName;
 
     private final String errorKey;
 

@@ -1,11 +1,11 @@
 package com.tandem6.portal.web.rest.util;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 
 /**
  * Utility class for handling pagination.
@@ -19,7 +19,7 @@ public final class PaginationUtil {
     private PaginationUtil() {
     }
 
-    public static HttpHeaders generatePaginationHttpHeaders(Page page, String baseUrl) {
+    public static HttpHeaders generatePaginationHttpHeaders(@SuppressWarnings("rawtypes") Page page, String baseUrl) {
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("X-Total-Count", Long.toString(page.getTotalElements()));
@@ -46,7 +46,7 @@ public final class PaginationUtil {
         return UriComponentsBuilder.fromUriString(baseUrl).queryParam("page", page).queryParam("size", size).toUriString();
     }
 
-    public static HttpHeaders generateSearchPaginationHttpHeaders(String query, Page page, String baseUrl) {
+    public static HttpHeaders generateSearchPaginationHttpHeaders(String query, @SuppressWarnings("rawtypes") Page page, String baseUrl) {
         String escapedQuery;
         try {
             escapedQuery = URLEncoder.encode(query, "UTF-8");
