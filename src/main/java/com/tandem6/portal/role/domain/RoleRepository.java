@@ -1,11 +1,7 @@
-package com.tandem6.portal.repository;
+package com.tandem6.portal.role.domain;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import com.tandem6.portal.role.domain.Role;
-
-import org.springframework.data.jpa.repository.*;
-
 
 /**
  * Spring Data JPA repository for the Role entity.

@@ -1,20 +1,22 @@
 package com.tandem6.portal.role.application;
 
-import com.tandem6.portal.repository.RoleRepository;
-import com.tandem6.portal.repository.search.RoleSearchRepository;
-import com.tandem6.portal.role.application.dto.RoleDTO;
-import com.tandem6.portal.role.application.mapper.RoleMapper;
-import com.tandem6.portal.role.domain.Role;
+import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.tandem6.portal.repository.search.RoleSearchRepository;
+import com.tandem6.portal.role.application.dto.RoleDTO;
+import com.tandem6.portal.role.application.mapper.RoleMapper;
+import com.tandem6.portal.role.domain.Role;
+import com.tandem6.portal.role.domain.RoleRepository;
 
-import static org.elasticsearch.index.query.QueryBuilders.*;
+
 
 /**
  * Service Implementation for managing Role.
@@ -31,6 +33,7 @@ public class RoleService {
 
     private final RoleSearchRepository roleSearchRepository;
 
+    @Autowired
     public RoleService(RoleRepository roleRepository, RoleMapper roleMapper, RoleSearchRepository roleSearchRepository) {
         this.roleRepository = roleRepository;
         this.roleMapper = roleMapper;

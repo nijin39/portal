@@ -1,10 +1,10 @@
 package com.tandem6.portal.role.application.mapper;
 
-import com.tandem6.portal.domain.*;
+import org.mapstruct.Mapper;
+import org.springframework.stereotype.Component;
+
 import com.tandem6.portal.role.application.dto.RoleDTO;
 import com.tandem6.portal.role.domain.Role;
-
-import org.mapstruct.*;
 
 /**
  * Mapper for the entity Role and its DTO RoleDTO.

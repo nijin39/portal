@@ -1,14 +1,19 @@
 package com.tandem6.portal.web.rest;
 
-import com.tandem6.portal.PortalApp;
-import com.tandem6.portal.repository.RoleRepository;
-import com.tandem6.portal.repository.search.RoleSearchRepository;
-import com.tandem6.portal.role.application.RoleService;
-import com.tandem6.portal.role.application.dto.RoleDTO;
-import com.tandem6.portal.role.application.mapper.RoleMapper;
-import com.tandem6.portal.role.domain.Role;
-import com.tandem6.portal.role.ui.RoleResource;
-import com.tandem6.portal.web.rest.errors.ExceptionTranslator;
+import static com.tandem6.portal.web.rest.TestUtil.createFormattingConversionService;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.hasItem;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -24,14 +29,15 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import java.util.List;
-
-import static com.tandem6.portal.web.rest.TestUtil.createFormattingConversionService;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.hasItem;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import com.tandem6.portal.PortalApp;
+import com.tandem6.portal.repository.search.RoleSearchRepository;
+import com.tandem6.portal.role.application.RoleService;
+import com.tandem6.portal.role.application.dto.RoleDTO;
+import com.tandem6.portal.role.application.mapper.RoleMapper;
+import com.tandem6.portal.role.domain.Role;
+import com.tandem6.portal.role.domain.RoleRepository;
+import com.tandem6.portal.role.ui.RoleResource;
+import com.tandem6.portal.web.rest.errors.ExceptionTranslator;
 
 /**
  * Test class for the RoleResource REST controller.

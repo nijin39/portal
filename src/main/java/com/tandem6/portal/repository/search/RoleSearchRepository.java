@@ -1,5 +1,6 @@
 package com.tandem6.portal.repository.search;
 
+
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
 import com.tandem6.portal.role.domain.Role;
