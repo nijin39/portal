@@ -1,0 +1,11 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [],
+    "changelogDate": "20180302235540",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "usergroup",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pager"
+}

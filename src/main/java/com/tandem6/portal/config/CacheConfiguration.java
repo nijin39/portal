@@ -37,6 +37,8 @@ public class CacheConfiguration {
     public JCacheManagerCustomizer cacheManagerCustomizer() {
         return cm -> {
             cm.createCache(com.tandem6.portal.user.domain.User.class.getName(), jcacheConfiguration);
+            cm.createCache(com.tandem6.portal.usergroup.domain.Usergroup.class.getName(), jcacheConfiguration);
+            cm.createCache(com.tandem6.portal.role.domain.Role.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
